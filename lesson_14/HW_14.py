@@ -5,8 +5,8 @@
 """
 
 import logging
-
 import pytest
+import os
 
 
 def log_event(username: str, status: str):
@@ -25,9 +25,9 @@ def log_event(username: str, status: str):
 
     # Створення та налаштування логера
     logging.basicConfig(
-        filename='login_system.log',
+        filename="login_system.log",
         level=logging.INFO,
-        format='%(asctime)s - %(message)s'
+        format='%(asctime)s - %(message)s - %(levelname)s'
         )
     logger = logging.getLogger("log_event")
 
@@ -39,14 +39,39 @@ def log_event(username: str, status: str):
     else:
         logger.error(log_message)
 
-@pytest.mark.parametrize("username, status", [
-    "admin, expired",
-    "admin, success",
-    "user_1, expired",
-    "user_2, success"
-    ]
-)
-def test_log_event_success(username,status):
-    with open (login_system.log) as log:
-        content = log.read()
-        assert f"Login event - Username: {username}, Status: {status}"
+LOG_FILE = "login_system.log"
+
+# Test 1 - checking that we even have records in our log file
+@pytest.mark.parametrize("username, status, log_lvl", [
+    ("admin", "success", "INFO"),
+    ("admin", "expired", "WARNING"),
+    ("user_1", "expired", "WARNING"),
+    ("user_2", "success", "INFO"),
+    ("user", "failed", "ERROR"),
+    ("admin", "unknown", "ERROR"),
+])
+def test_log_event_writes_to_file(username, status, log_lvl):
+
+    logging.root.handlers.clear()  # we need it for basic config work
+
+    log_event(username, status)
+
+    with open(LOG_FILE, "r") as f:
+        content = f.read()
+
+    assert f"Login event - Username: {username}, Status: {status} - {log_lvl}" in content
+
+
+# # Test 2 - checking logging level for the recods
+# @pytest.mark.parametrize("username, status, expected_lvl", [
+#     ("admin", "success", logging.INFO),
+#     ("admin", "expired", logging.WARNING),
+#     ("user", "failed", logging.ERROR),
+#     ("admin", "unknown", logging.ERROR),
+# ])
+# def test_log_event_level(caplog, username, status, expected_lvl):
+#     with caplog.at_level(logging.DEBUG):
+#         log_event(username, status)
+#
+#     assert len(caplog.records) > 0
+#     assert caplog.records[0].levelno == expected_lvl
