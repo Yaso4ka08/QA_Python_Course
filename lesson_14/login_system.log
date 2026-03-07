@@ -1,0 +1,6 @@
+2026-02-23 13:11:26,350 - Login event - Username: admin, Status: success - INFO
+2026-02-23 13:11:26,381 - Login event - Username: admin, Status: expired - WARNING
+2026-02-23 13:11:26,401 - Login event - Username: user_1, Status: expired - WARNING
+2026-02-23 13:11:26,419 - Login event - Username: user_2, Status: success - INFO
+2026-02-23 13:11:26,447 - Login event - Username: user, Status: failed - ERROR
+2026-02-23 13:11:26,484 - Login event - Username: admin, Status: unknown - ERROR
