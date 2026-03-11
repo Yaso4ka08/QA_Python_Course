@@ -19,28 +19,25 @@ if response.status_code == 200:
         print('Отримано дані:', data)
         items = data["collection"]["items"]
         print(items)
-        for i in items:
+        for index, i in enumerate(items):
             nasa_id = i["data"][0]["nasa_id"]
             print(nasa_id)
             # Отримання файлів по nasa_id
             asset_url_template = f"{BASE_URL}/asset/{nasa_id}"
             print(asset_url_template)
             asset_url_response = requests.get(url=asset_url_template)
-            try:
-                asset_url_response_json = asset_url_response.json()
-                asset_items = asset_url_response_json["collection"]["items"]
-                # лише для перших елементів буду качати файли
-                for index, i in enumerate(asset_items[:2]):
-                    # знаходжу лінку за котрой качати
-                    asset_image = i["href"]
-                    img = requests.get(asset_image).content
+            if index <2:
+                try:
+                    asset_url_response_json = asset_url_response.json()
+                    asset_items = asset_url_response_json["collection"]["items"][0]["href"]
+                    img = requests.get(asset_items).content
                     # зберігаю файл разом із індексацією для файлів
                     with open(f"mars_photo{index + 1}.jpg", "wb") as f:
                         f.write(img)
 
-            except json.JSONDecodeError as e:
-                print('Помилка при серіалізації JSON:', e)
-                print("Не має змоги скачати файл")
+                except json.JSONDecodeError as e:
+                    print('Помилка при серіалізації JSON:', e)
+                    print("Не має змоги скачати файл")
 
     except json.JSONDecodeError as e:
         print('Помилка при серіалізації JSON:', e)
