@@ -1,0 +1,191 @@
+----------------------------------
+Block of Playwright locators POS
+----------------------------------
+
+
+
+*******ALL SOF Objects*******
+pH# 0
+name: viewport
+playwright-po:	  this.viewport = page.locator("name=viewport");
+
+***************************
+pH# 1
+name: theme-color
+playwright-po:	  this.themecolor = page.locator("name=theme-color");
+
+***************************
+pH# 2
+id: sprite-link
+playwright-po:	  this.spritelink = page.locator("#sprite-link");
+
+***************************
+pH# 3
+id: googleidentityservice_button_styles
+playwright-po:	  this.googleidentityservice_button_styles = page.locator("#googleidentityservice_button_styles");
+
+***************************
+pH# 4
+id: googleidentityservice
+playwright-po:	  this.googleidentityservice = page.locator("#googleidentityservice");
+
+***************************
+pH# 5
+name: description
+playwright-po:	  this.description = page.locator("name=description");
+
+
+
+-----------------------
+Block of CSS locators
+-----------------------
+
+
+a[data-gtm-label="learn-more"][data-gtm-subsection="ground-adv"]
+
+*****************************
+
+a[data-gtm-subsection="ground-adv"][data-gtm-label="learn-more"]
+
+****************************
+
+.jumbotron.premium h2
+
+****************************
+
+div.featured-usps
+
+****************************
+
+#usps-carousel
+
+****************************
+
+****************************
+
+a[data-gtm-label="informeddelivery-link"]
+
+****************************
+
+****************************
+
+a[data-gtm-label="stamps-link"]
+
+****************************
+****************************
+
+a[data-gtm-label="click-n-ship-link"]
+
+****************************
+****************************
+
+div.quicktools.track-opt
+
+****************************
+****************************
+
+#home-input
+
+***************************
+***************************
+
+#home-input-mob
+
+***************************
+
+button.input--search.btn[type="submit"]
+
+****************************
+****************************
+#nav-utility
+
+****************************
+
+a.global-logo
+
+****************************
+****************************
+
+#login-register-header
+
+****************************
+#link-locator
+
+****************************
+****************************
+
+#link-customer
+
+****************************
+****************************
+
+#link-myusps
+
+****************************
+
+#link-cart
+
+****************************
+
+a.mobile-hamburger
+
+****************************
+
+a.mobile-search
+
+****************************
+
+
+-----------------------
+Block of XPath locators
+-----------------------
+
+(1) //div[@id='utility-bar']
+
+(2) //a[@id='skip-nav']
+
+(3) //a[@id='link-support']
+
+(4) //a[@id='link-myusps']
+
+(5) //a[@id='anchor-login']
+
+(6) //div[@id='nav-tool-login']
+
+(7) //a[@id='login-register-header']
+
+(8) //a[@class='global-logo']
+
+(9) //a[@class='mobile-hamburger']
+
+(10) //a[@class='mobile-search']
+
+(11) //a[@id='mail-ship-width']
+
+(12) //a[@aria-expanded='false' and contains(@class,'menuitem active')]
+
+(13) //li[contains(@class,'qt-nav menuheader')]
+
+(14) //ul[@class='nav-list'][@role='menubar']
+
+(15) //a[@role='menuitem'][.//p[text()='Track a Package']]
+
+(16) //a[@role='menuitem'][.//p[text()='Buy Stamps']]
+
+(17) //a[@role='menuitem'][.//p[text()='Hold Mail']]
+
+(18) //div[@id='maincontent']
+
+(19) //h1[@class='header-1']
+
+(20) //h2[@class='header-2 subhead']
+
+(21) //a[@href='https://cnsb.usps.com'][ancestor::div[contains(@class,'benefits--3')]]
+
+(22) //a[@class='button--primary'][contains(text(),'Get Started')]
+
+(23) //h2[@id='marketingmail']
+
+(24) //a[@class='expandv'][1]
+
+(25) //div[@class='inpage-alert no-icon']//a[contains(@href,'priority-mail-next-day')]
