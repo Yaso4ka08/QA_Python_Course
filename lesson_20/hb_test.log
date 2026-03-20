@@ -1,0 +1,5 @@
+ERROR - Timestamp 04:51:17 -> 04:50:42 | heartbeat=35.0s
+ERROR - Timestamp 03:39:11 -> 03:38:36 | heartbeat=35.0s
+ERROR - Timestamp 02:27:06 -> 02:26:30 | heartbeat=36.0s
+WARNING - Timestamp 01:35:10 -> 01:34:38 | heartbeat=32.0s
+ERROR - Timestamp 01:14:58 -> 01:14:23 | heartbeat=35.0s
